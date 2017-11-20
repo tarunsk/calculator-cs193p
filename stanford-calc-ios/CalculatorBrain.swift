@@ -17,6 +17,7 @@ struct CalculatorBrain  {
         case unaryOperation((Double) -> Double)
         case binaryOperation((Double, Double) -> Double)
         case floatingPoint((Double, Double) -> Double)
+        case clear()
         case equals
     }
     
@@ -25,12 +26,15 @@ struct CalculatorBrain  {
         "e" : Operation.constant(M_E),
         "√" : Operation.unaryOperation(sqrt),
         "cos" : Operation.unaryOperation(cos),
+        "sin" : Operation.unaryOperation(sin),
+        "tan" : Operation.unaryOperation(tan),
         "±" : Operation.unaryOperation({-$0}),
         "×" : Operation.binaryOperation({$0 * $1}),
         "÷" : Operation.binaryOperation({$0 / $1}),
         "+" : Operation.binaryOperation({$0 + $1}),
         "−" : Operation.binaryOperation({$0 - $1}),
         "." : Operation.floatingPoint({$0 + ($1 / 100)}),
+        "C" : Operation.clear(),
         "=" : Operation.equals
     ]
     
@@ -52,6 +56,10 @@ struct CalculatorBrain  {
                 if accumulator != nil   {
                     pendingFloatEntry = PendingFloatEntry(function: function, integerComponent: accumulator!)
                     accumulator = nil
+                }
+            case .clear():
+                if accumulator != nil   {
+                    accumulator = 0;
                 }
             case .equals:
                 performPendingBinaryOperation()
