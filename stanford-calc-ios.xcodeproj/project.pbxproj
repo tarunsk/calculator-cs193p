@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D42E29E1FC2502200653DD0 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42E29D1FC2502200653DD0 /* CalculatorBrain.swift */; };
 		8DD57FE21FBF97E40062CBBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD57FE11FBF97E40062CBBD /* AppDelegate.swift */; };
 		8DD57FE41FBF97E40062CBBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD57FE31FBF97E40062CBBD /* ViewController.swift */; };
 		8DD57FE71FBF97E50062CBBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DD57FE51FBF97E50062CBBD /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D42E29D1FC2502200653DD0 /* CalculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 		8DD57FDE1FBF97E40062CBBD /* stanford-calc-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "stanford-calc-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD57FE11FBF97E40062CBBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DD57FE31FBF97E40062CBBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				8DD57FF31FBF98950062CBBD /* Supporting Files */,
 				8DD57FE31FBF97E40062CBBD /* ViewController.swift */,
+				8D42E29D1FC2502200653DD0 /* CalculatorBrain.swift */,
 				8DD57FE51FBF97E50062CBBD /* Main.storyboard */,
 			);
 			path = "stanford-calc-ios";
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D42E29E1FC2502200653DD0 /* CalculatorBrain.swift in Sources */,
 				8DD57FE41FBF97E40062CBBD /* ViewController.swift in Sources */,
 				8DD57FE21FBF97E40062CBBD /* AppDelegate.swift in Sources */,
 			);
