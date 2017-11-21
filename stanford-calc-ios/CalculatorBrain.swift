@@ -16,7 +16,6 @@ struct CalculatorBrain  {
         case constant(Double)
         case unaryOperation((Double) -> Double)
         case binaryOperation((Double, Double) -> Double)
-        case floatingPoint((Double, Double) -> Double)
         case clear()
         case equals
     }
@@ -33,7 +32,6 @@ struct CalculatorBrain  {
         "÷" : Operation.binaryOperation({$0 / $1}),
         "+" : Operation.binaryOperation({$0 + $1}),
         "−" : Operation.binaryOperation({$0 - $1}),
-        "." : Operation.floatingPoint({$0 + ($1 / 100)}),
         "C" : Operation.clear(),
         "=" : Operation.equals
     ]
@@ -52,11 +50,6 @@ struct CalculatorBrain  {
                     pendingBinaryOperation = PendingBinaryOperation(function: function, firstOperand: accumulator!)
                     accumulator = nil
                 }
-            case .floatingPoint(let function):
-                if accumulator != nil   {
-                    pendingFloatEntry = PendingFloatEntry(function: function, integerComponent: accumulator!)
-                    accumulator = nil
-                }
             case .clear():
                 if accumulator != nil   {
                     accumulator = 0;
@@ -70,17 +63,6 @@ struct CalculatorBrain  {
     private mutating func performPendingBinaryOperation()  {
         if pendingBinaryOperation != nil && accumulator != nil {
             accumulator = pendingBinaryOperation!.perform(with: accumulator!)
-        }
-    }
-    
-    private var pendingFloatEntry: PendingFloatEntry?
-    
-    private struct PendingFloatEntry    {
-        let function: (Double, Double) -> Double
-        let integerComponent: Double
-        
-        func addDecimal(with decimalComponent: Double) -> Double    {
-            return function(integerComponent, decimalComponent)
         }
     }
     
